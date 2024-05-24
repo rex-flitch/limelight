@@ -121,7 +121,7 @@ export default function BottomSection() {
     useEffect(() => {
         if (data && data.ratesFaqSecurities && data.ratesFaqSecurities.data.length > 0) {
             // Set the first entry as active by default
-            setActiveId(data.ratesFaqSecurities.data[0].id);
+            setActiveId(data.ratesFaqSecurities.data[1].id);
           }
       }, [data]);
 
@@ -137,7 +137,7 @@ export default function BottomSection() {
                 <div className='clickSection'>
 
                 {data.ratesFaqSecurities.data.map((entry) => {
-                  if (entry.attributes.Title !== 'Mobile Banking') {
+                  if (entry.attributes.Title !== 'Rates') {
                     return (
                       <div key={entry.id}>
                         <span>
@@ -164,7 +164,7 @@ export default function BottomSection() {
               <div className='container'>
                 {data.ratesFaqSecurities.data.map((entry) => {
                   if (activeId === entry.id) {
-                    if (entry.attributes.Title !== 'Mobile Banking') {
+                    if (entry.attributes.Title !== 'Rates') {
                       return (
                         <div key={`desc-${entry.id}`}>
                           <div>
@@ -204,6 +204,12 @@ export default function BottomSection() {
                                   </details>
                                 </div>
                               ))}
+                            </div>
+                          )}
+                          {entry.attributes.Title === 'Mobile Banking' && (
+                            <div className='flex'>
+                              <div><Link to='https://play.google.com/store/apps/details?id=com.mfoundry.mb.android.mb_18u'><img src='https://res.cloudinary.com/limelightbank/image/upload/v1716588906/footer_apps_google_46793bd5b3.png' alt='Get it on Google Play' /></Link></div>
+                              <div><Link to='https://apps.apple.com/us/app/ccbankutah/id1511763497?ls=1'><img src='https://res.cloudinary.com/limelightbank/image/upload/v1716588930/footer_apps_apple_a47bd1d0f9.png' alt='Download on the App Store' /></Link></div>
                             </div>
                           )}
                         </div>

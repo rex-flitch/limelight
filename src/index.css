@@ -251,7 +251,7 @@ li {
   background-color:#fff;
   position:sticky;
   top:-50px;
-  z-index:4;
+  z-index:15000;
 }
 .top-nav-bar {
   border-bottom:1px solid #e5e5e5;

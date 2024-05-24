@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 // import parse from 'html-react-parser'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
-import BottomSection from '../components/BottomSection'
+import BottomSectionNoRates from '../components/BottomSectionNoRates'
 
 const RATESQUERY = gql`
     query GetRates {
@@ -117,7 +117,7 @@ export default function Rates() {
                     </div>
                 </div>
             </div>
-            <BottomSection />
+            <BottomSectionNoRates />
       </main>
     )
 }

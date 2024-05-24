@@ -392,6 +392,7 @@ li {
 }
 .hero h1 {
   margin:8px 0;
+  line-height:50px;
 }
 .hero h1, .hero h2, .hero p, .hero a {
   color:#fff;

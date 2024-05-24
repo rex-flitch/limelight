@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 // import parse from 'html-react-parser'
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 
 const HOMEPAGEQUERY = gql`
     query GetHomepage {
@@ -92,12 +94,45 @@ export default function Homepage() {
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :(</p>
 
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      slidesToSlide: 1 // optional, default to 1.
+    }
+  };
   console.log(data)
 
     return (
         <main className='wrapper' id='main' tabIndex="-1">
-            <div className='hero-banner banner-slider'>
-            {data.homepage.data.attributes.Hero.map((hero) => (
+          <div className='hero-banner banner-slider'>
+            <Carousel 
+            swipeable={true}
+            draggable={true}
+            showDots={true}
+            responsive={responsive}
+            ssr={true} // means to render carousel on server-side.
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={7000}
+            keyBoardControl={true}
+            containerClass="carousel-container"
+            removeArrowOnDeviceType={["tablet", "mobile"]}
+            dotListClass="custom-home-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+            className='hero-slider'
+            >
+                {data.homepage.data.attributes.Hero.map((hero) => (
                 <div key={hero.id} className='hero' id={`hero-id-${hero.id}`} style={{backgroundImage: `url(${hero.Background.data.attributes.url})`}}>
                     <div className='grad-overlay'></div>
                     <div className='inner-container'>
@@ -114,7 +149,7 @@ export default function Homepage() {
                     </div>
                 </div>
             ))}
-            <div className='gradient-border'></div>
+            </Carousel>
             </div>
             <div className='rates bk-lightgrey'>
                 <div className='container flex'>

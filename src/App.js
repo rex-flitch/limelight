@@ -13,6 +13,9 @@ import Security from './pages/Security'
 import Privacy from './pages/Privacy'
 import Faq from './pages/Faq'
 import Rates from './pages/Rates'
+import Contact from './pages/Contact'
+import Forms from './pages/Forms'
+import Feedback from './pages/Feedback'
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
 
@@ -46,6 +49,9 @@ function App() {
           <Route path="/about/privacy/" element={<Privacy />}/>
           <Route path="/resources/frequently-asked-questions/" element={<Faq />}/>
           <Route path="/resources/rates/" element={<Rates />}/>
+          <Route path="/resources/forms/" element={<Forms />}/>
+          <Route path="/about/contact/" element={<Contact />}/>
+          <Route path="/about/feedback/" element={<Feedback />}/>
         </Routes>
         <SiteFooter />
       </div>

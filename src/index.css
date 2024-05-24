@@ -243,6 +243,68 @@ li {
 .img-height-auto {
   height:auto;
 }
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  background-color: #03873Dff;
+  color:#fff;
+  padding-bottom:4px;
+  z-index: 10;
+  border-radius: 50px;
+  width: 34px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+
+}
+
+/* Add these styles in your CSS file */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+.modal-main-content {
+  padding:20px;
+}
+.modal-content button {
+  margin: 10px;
+  padding: 8px 15px;
+  border: none;
+  background-color: #03873D;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #de7205;
+}
+.modal-content .top {
+  background-color: #DEDEDE;
+  padding:2px;
+  border-radius: 5px 5px 0 0;
+}
 
 /* NAVIGATION AND HEADER */
 

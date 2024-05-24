@@ -36,6 +36,13 @@ const HEADERQUERY = gql`
 `
 
 export default function SiteHeader() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // For smooth scrolling
+    });
+  };
+
     const { loading, error, data } = useQuery(HEADERQUERY)
 
   if (loading) return <p>Loading...</p>
@@ -45,6 +52,10 @@ export default function SiteHeader() {
 
   return (
     <div className='site-header'>
+      <div className="scroll-to-top" role="button" tabindex="0" onClick={scrollToTop}>
+        {/* Replace with your icon */}
+        <span>↑</span>
+      </div>
         <div className='top-nav-bar'>
             <div className='container flex-end'>
                 <ul>
@@ -70,9 +81,9 @@ export default function SiteHeader() {
                         }
                         </li>
                     ))}
-                        <li className='btn-orange'><Link to="/">OPEN AN ACCOUNT</Link></li>
-                        <li className='btn-ghost-green'><Link to="/"><i className="glyphicon fa-lock fas" aria-hidden="true"></i> LOGIN</Link></li>
-                        <li className='btn-ghost-orange'><Link to="/">ENROLL NOW</Link></li>
+                        <li className='btn-orange'><Link to="https://forms.fivision.com/ccbank/oa2/default.aspx">OPEN AN ACCOUNT</Link></li>
+                        <li className='btn-ghost-green'><Link to="https://cibng.ibanking-services.com/eAM/Credential/Index?%20FIORG=18U&orgId=18U_124302927&FIFID=124302927&brand=18U_124302927&appId=ceb"><i className="glyphicon fa-lock fas" aria-hidden="true"></i> LOGIN</Link></li>
+                        <li className='btn-ghost-orange'><Link to="https://b124302927.flex.online-banking-services.com/cuFlexEnrollment/#!/selfEnrollment/home">ENROLL NOW</Link></li>
                     </ul>
                 </nav>
                 <MobileMenu />

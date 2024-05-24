@@ -18,6 +18,8 @@ import Forms from './pages/Forms'
 import Feedback from './pages/Feedback'
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import useExternalLinkInterceptor from './hooks/useExternalLinkInterceptor'
+import ConfirmationModal from './components/ConfirmationModal';
 
 // apollo client
 const client = new ApolloClient({
@@ -32,6 +34,8 @@ const client = new ApolloClient({
 })
 
 function App() {
+  const { showModal, handleConfirm, setShowModal } = useExternalLinkInterceptor()
+
   return (
     <Router>
       <ApolloProvider client={client}>
@@ -54,6 +58,11 @@ function App() {
           <Route path="/about/feedback/" element={<Feedback />}/>
         </Routes>
         <SiteFooter />
+        <ConfirmationModal 
+          isOpen={showModal} 
+          onConfirm={handleConfirm} 
+          onCancel={() => setShowModal(false)}
+        />
       </div>
       </ApolloProvider>
     </Router>

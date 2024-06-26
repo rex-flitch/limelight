@@ -1060,4 +1060,7 @@ details[open] > summary:first-of-type {
     font-size:12px;
     padding: 0px 10px;
   }
+  .footer-top-links {
+    flex-direction:column;
+  }
 }

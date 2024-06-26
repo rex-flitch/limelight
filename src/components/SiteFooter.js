@@ -40,7 +40,7 @@ export default function SiteFooter() {
     <footer className='site-footer'>
         <div className='gradient-border-large'></div>
         <div className='container'>
-            <ul>
+            <ul className='footer-top-links'>
                 <li><Link to="">Sitemap</Link></li>
                 <li><Link to={`tel:${data.siteSettings.data[0].attributes.PhoneNumber}`}>{data.siteSettings.data[0].attributes.PhoneNumber}</Link></li>
                 <li><Link to="">Website Accessibility</Link></li>
@@ -62,7 +62,7 @@ export default function SiteFooter() {
             </ul>
             <div>Routing & Transit Number: {data.siteSettings.data[0].attributes.RoutingNumber}</div>
             <div className='copyright'>Copyright &copy; 2024 Limelight Bank. All rights reserved</div>
-            <div className='equal'><img src='https://res.cloudinary.com/limelightbank/image/upload/v1715619245/member_fdic_600x56_1_c689f918ce.webp' alt='Equal Housing Lender Logo' /></div>
+            <div className='equal'><Link to="https://www.fdic.gov/"><img src='https://res.cloudinary.com/limelightbank/image/upload/v1719415668/Equal_Housing_Lender_bcad51c65f.svg' alt='Equal Housing Lender Logo' /></Link></div>
         </div>
     </footer>
   )

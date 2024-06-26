@@ -46,7 +46,7 @@ export default function SiteFooter() {
                 <li><Link to="">Website Accessibility</Link></li>
             </ul>
             <ul className='footer-social'>
-                <li><img src={data.siteSettings.data[0].attributes.Logo.data.attributes.url} alt={data.siteSettings.data[0].attributes.Logo.data.attributes.alternativeText} /></li>
+                <li className='footer-logo'><img src={data.siteSettings.data[0].attributes.Logo.data.attributes.url} alt={data.siteSettings.data[0].attributes.Logo.data.attributes.alternativeText} /></li>
                 {data.siteSettings.data[0].attributes.Facebook !== null &&
                     <li><Link to={data.siteSettings.data[0].attributes.Facebook}><img src='https://res.cloudinary.com/limelightbank/image/upload/v1715618523/fb_ec0cc5faa1.png' alt='Facebook Icon' /></Link></li>
                 }

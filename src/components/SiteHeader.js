@@ -67,7 +67,7 @@ export default function SiteHeader() {
         </div>
         <div className='main-nav-bar'>
             <div className='container flex-nav'>
-                <div className='logo'><Link to="/"><img src="https://res.cloudinary.com/limelightbank/image/upload/v1715619127/LIMELIGHT_POWERED_BY_CCBANK_LOGO_6cf026a241.png" alt="Limelight Logo" /></Link></div>
+                <div className='logo'><Link to="/"><img src="https://res.cloudinary.com/limelightbank/image/upload/v1719424879/limelight_logo_faea0cdb79.svg" alt="Limelight Logo" /></Link></div>
                 <nav className='main-nav'>
                     <ul>
                     {data.mainNavigations.data.map((main) => (

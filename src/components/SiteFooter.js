@@ -31,7 +31,7 @@ export default function SiteFooter() {
 
     const { loading, error, data } = useQuery(FOOTERQUERY)
 
-    if (loading) return <p>Loading...</p>
+    if (loading) return <p></p>
     if (error) return <p>Error :(</p>
 
     console.log(data)

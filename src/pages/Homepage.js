@@ -20,6 +20,7 @@ const HOMEPAGEQUERY = gql`
               Description
               ButtonURL
               ButtonTitle
+              Active
               Background {
                 data {
                   attributes {
@@ -115,42 +116,48 @@ export default function Homepage() {
 
     return (
         <main className='wrapper' id='main' tabIndex="-1">
-          <div className='hero-banner banner-slider'>
-            <Carousel 
-            swipeable={true}
-            draggable={true}
-            showDots={true}
-            responsive={responsive}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            autoPlay={true}
-            autoPlaySpeed={7000}
-            keyBoardControl={true}
-            containerClass="carousel-container"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-            dotListClass="custom-home-dot-list-style"
-            itemClass="carousel-item-padding-40-px"
-            className='hero-slider'
-            >
-                {data.homepage.data.attributes.Hero.map((hero) => (
-                <div key={hero.id} className='hero' id={`hero-id-${hero.id}`} style={{backgroundImage: `url(${hero.Background.data.attributes.url})`}}>
-                    <div className='grad-overlay'></div>
-                    <div className='inner-container'>
-                        <div className='login-container'></div>
-                        <div className='inner-hero'>
-                            <h1>{hero.Title}</h1>
-                            {hero.Description !== null &&
-                                <p><BlocksRenderer content={hero.Description} /></p>
-                            }
-                            {hero.ButtonTitle !== null &&
-                                <div className='btn-ghost-white'><Link to={hero.ButtonURL}>{hero.ButtonTitle}</Link></div>
-                            }
-                        </div>
-                    </div>
+          {data.homepage.data.attributes.Hero.some((hero) => hero.Active) && (
+                <div className='hero-banner banner-slider'>
+                    <Carousel
+                        swipeable={true}
+                        draggable={true}
+                        showDots={true}
+                        responsive={responsive}
+                        ssr={true}
+                        infinite={true}
+                        autoPlay={true}
+                        autoPlaySpeed={7000}
+                        keyBoardControl={true}
+                        containerClass="carousel-container"
+                        removeArrowOnDeviceType={["tablet", "mobile"]}
+                        dotListClass="custom-home-dot-list-style"
+                        itemClass="carousel-item-padding-40-px"
+                        className='hero-slider'
+                    >
+                        {data.homepage.data.attributes.Hero.map((hero) =>
+                            hero.Active && (
+                                <div key={hero.id} className='hero' id={`hero-id-${hero.id}`} style={{ backgroundImage: `url(${hero.Background.data.attributes.url})` }}>
+                                    <div className='grad-overlay'></div>
+                                    <div className='inner-container'>
+                                        <div className='login-container'></div>
+                                        <div className='inner-hero'>
+                                            <h1>{hero.Title}</h1>
+                                            {hero.Description !== null && (
+                                                <p><BlocksRenderer content={hero.Description} /></p>
+                                            )}
+                                            {hero.ButtonTitle !== null && (
+                                                <div className='btn-ghost-white'>
+                                                    <Link to={hero.ButtonURL}>{hero.ButtonTitle}</Link>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        )}
+                    </Carousel>
                 </div>
-            ))}
-            </Carousel>
-            </div>
+            )}
             <div className='rates bk-lightgrey'>
                 <div className='container flex'>
                     {data.rates.data.map((rate) => (

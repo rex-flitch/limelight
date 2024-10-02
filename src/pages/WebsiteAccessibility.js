@@ -76,7 +76,7 @@ export default function WebAccessibility() {
                     <div className='content'>
                         <h2>{data.websiteAccessibility.data.attributes.TopSection.SubHeader}</h2>
                         <div><BlocksRenderer content={data.websiteAccessibility.data.attributes.TopSection.Description} /></div>
-                        <div><a href="http://www.w3.org/WAI/WCAG2AA-Conformance" target="_blank" rel="noopener noreferrer"><img src="https://res.cloudinary.com/limelightbank/image/upload/v1727888407/wcag2_AA_ec21262026.png" /></a></div>
+                        <div><a href="http://www.w3.org/WAI/WCAG2AA-Conformance" target="_blank" rel="noopener noreferrer"><img src="https://res.cloudinary.com/limelightbank/image/upload/v1727888407/wcag2_AA_ec21262026.png" height="32" width="88" /></a></div>
                     </div>
                     <div>
                         <div className='box-cta'>

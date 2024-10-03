@@ -639,6 +639,29 @@ li {
   border-bottom: solid 8px #ffca06;
 }
 
+/* TABLES */
+
+.facts-table table {
+  width:100%;
+  margin:0;
+  padding:0;
+  border-collapse:collapse;  
+}
+.facts-table tr {
+  border:1px solid #eee;
+  background-color:#fff;
+}
+.facts-table tr:nth-child(even) {
+  background-color:rgba(248, 246, 246, 1);
+}
+.facts-table td:nth-child(1) {
+  background-color:#111;
+  color:#fff;
+}
+.facts-table td {
+  padding:12px 10px;
+}
+
 /* BOTTOM SECTION AND RATES TABLE */
 
 .rates-table table {

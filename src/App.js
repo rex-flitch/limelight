@@ -21,6 +21,7 @@ import SiteFooter from "./components/SiteFooter";
 import useExternalLinkInterceptor from './hooks/useExternalLinkInterceptor'
 import ConfirmationModal from './components/ConfirmationModal';
 import WebAccessibility from './pages/WebsiteAccessibility'
+import TermsAndConditions from './pages/TermsAndConditions'
 
 // apollo client
 const client = new ApolloClient({
@@ -58,6 +59,7 @@ function App() {
           <Route path="/about/contact/" element={<Contact />}/>
           <Route path="/about/feedback/" element={<Feedback />}/>
           <Route path="/website-accessibility" element={<WebAccessibility />}/>
+          <Route path="/termsandconditions" element={<TermsAndConditions />}/>
         </Routes>
         <SiteFooter />
         <ConfirmationModal 
